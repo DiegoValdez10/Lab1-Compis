@@ -1,11 +1,4 @@
-"""
-Universidad del Valle de Guatemala
 
-Teoria de la computación
-
-Diego Valdez - 21328
-Sebastian Estrada - 21405
-"""
 
 class NFA_Simulator:
     def __init__(self, nfa):

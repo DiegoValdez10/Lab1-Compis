@@ -1,11 +1,3 @@
-"""
-Universidad del Valle de Guatemala
-
-Teoria de la computación
-
-Diego Valdez - 21328
-Sebastian Estrada - 21405
-"""
 
 from graphviz import Digraph
 

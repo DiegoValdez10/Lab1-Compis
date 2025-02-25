@@ -1,7 +1,4 @@
-"""
-Universidad del Valle de Guatemala
-Teoria de la computación
-"""
+
 
 from graphviz import Digraph
 from ShuntingYard import Node
