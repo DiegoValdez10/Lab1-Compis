@@ -31,7 +31,6 @@ For each regular expression processed, the following outputs are generated:
 
 1. **Graphical Automata**:
    - A PNG image depicting:
-     - The **DFA** (Deterministic Finite Automaton) generated from the NFA using subset construction.
      - The **minimized DFA** after applying minimization techniques.
    - The automata diagrams display:
      - The initial state.
