@@ -4,11 +4,11 @@
 
 
 
-This project implements a program that processes a regular expression and a string, generating Non-deterministic Finite Automata (NFA), Deterministic Finite Automata (DFA), and Minimized DFA. The program also simulates the evaluation of a string against the automata, determining whether the string belongs to the language defined by the regular expression.
+This project implements a program that processes a regular expression and a string Deterministic Finite Automata (DFA), and Minimized DFA. The program also simulates the evaluation of a string against the automata, determining whether the string belongs to the language defined by the regular expression.
 
 ## Features
 - Input of regular expressions and strings for evaluation.
-- Conversion of the regular expression to NFA, DFA (via subset construction), and minimized DFA.
+- Creation of an AFD by the direct method, and minimized DFA.
 - Graphical representation of each automaton in a PNG format.
 - Simulation of string evaluation for each automaton to verify membership in the language defined by the regular expression.
 - Text file input processing with multiple regular expressions.
@@ -31,7 +31,6 @@ For each regular expression processed, the following outputs are generated:
 
 1. **Graphical Automata**:
    - A PNG image depicting:
-     - The **NFA** (Non-deterministic Finite Automaton) for the given regular expression.
      - The **DFA** (Deterministic Finite Automaton) generated from the NFA using subset construction.
      - The **minimized DFA** after applying minimization techniques.
    - The automata diagrams display:
@@ -61,7 +60,7 @@ For each regular expression processed, the following outputs are generated:
 2. Simulation result:
 3. NFA Simulation Result: yes 
 4. DFA Simulation Result: yes 
-5. Minimized DFA Simulation Result: yes
+
 
 
 ## Requirements
