@@ -1,11 +1,8 @@
-
 import os
 import platform
 from ShuntingYard import ShuntingYard
-from Thompson import ThompsonNFA
-from EmulatorNFA import NFA_Simulator
-from Minimizado import AFD
 from Metodo_Directo import AFD_Directo
+from EmulatorNFA import NFA_Simulator
 
 def clear_screen():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
@@ -33,17 +30,6 @@ def procesar_expresion(expression, index):
         print(f"Error en la construcción del AST: {str(e)}")
         return
 
-    thms = ThompsonNFA()
-    try:
-        nfa = thms.thompson_from_ast(ast)
-        nfa_graph = thms.visualize_nfa(nfa, expression)
-        nfa_filename = f"./grafos/nfa_{index}"
-        nfa_graph.render(nfa_filename, format="png", cleanup=True, view=False)
-        print(f"AFN generado y guardado como {nfa_filename}.png")
-    except ValueError as e:
-        print(f"Error en la construcción del AFN: {str(e)}")
-        return
-
     try:
         metodo_directo = AFD_Directo()
         dfa = metodo_directo.construir_afd(ast)
@@ -65,13 +51,21 @@ def procesar_expresion(expression, index):
         print(f"Error en la minimización del AFD: {str(e)}")
         return
 
-    simulatorNFA = NFA_Simulator(nfa)
-    input_string = input(f"Ingrese una cadena para evaluar en el lenguaje {expression}: ")
-
-    if dfa.simular(input_string):
-        print(f"La cadena '{input_string}' pertenece al lenguaje")
-    else:
-        print(f"La cadena '{input_string}' NO pertenece al lenguaje.")
+    try:
+        nfa_simulator = NFA_Simulator(dfa)  # Se usa el AFD como AFN para pruebas
+        input_string = input(f"Ingrese una cadena para evaluar en el lenguaje {expression}: ")
+        
+        if dfa.simular(input_string):
+            print(f"La cadena '{input_string}' pertenece al lenguaje (AFD)")
+        else:
+            print(f"La cadena '{input_string}' NO pertenece al lenguaje (AFD)")
+        
+        if nfa_simulator.simulate(input_string):
+            print(f"La cadena '{input_string}' pertenece al lenguaje (AFN)")
+        else:
+            print(f"La cadena '{input_string}' NO pertenece al lenguaje (AFN)")
+    except Exception as e:
+        print(f"Error en la simulación del AFN: {str(e)}")
 
 def main():
     clear_screen()
