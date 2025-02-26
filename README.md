@@ -1,11 +1,8 @@
-# Proyecto 1
+
 
 # Regular Expression to Automata Converter and Simulator
 
-## Teoria de la computación
 
-## Sebastian Estrada - 21405
-## Diego Valdez - 21328
 
 This project implements a program that processes a regular expression and a string, generating Non-deterministic Finite Automata (NFA), Deterministic Finite Automata (DFA), and Minimized DFA. The program also simulates the evaluation of a string against the automata, determining whether the string belongs to the language defined by the regular expression.
 
@@ -73,8 +70,4 @@ For each regular expression processed, the following outputs are generated:
 - Libraries:
 - `graphviz`: For generating PNG images of the automata.
 
-## Installation
-1. Clone the repository:
-```bash 
-git clone https://github.com/Teviets/Proyecto1TC
-```
+
