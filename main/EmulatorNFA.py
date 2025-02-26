@@ -41,8 +41,7 @@ class NFA_Simulator:
 
         
         for symbol in input_string:
-            print(f"Procesando símbolo: {symbol}")
-            print(f"Estados actuales: {current_states}")
+
             
             next_states = set()
             for state in current_states:
@@ -50,7 +49,6 @@ class NFA_Simulator:
                     symbol in self.nfa.transiciones[state]):
                     next_state = self.nfa.transiciones[state][symbol]
                     next_states.add(next_state)
-                    print(f"Transición: {state} --{symbol}--> {next_state}")
             
             if not next_states:
                 print(f"No hay transiciones para {symbol} desde {current_states}")

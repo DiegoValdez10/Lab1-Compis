@@ -53,11 +53,11 @@ def procesar_expresion(expression, index):
 
     try:
         
-        # Usamos el AFD para la simulación
+
         nfa_simulator = NFA_Simulator(dfa)  
         input_string = input(f"Ingrese una cadena para evaluar en el lenguaje {expression}: ")
         
-        # Simulación con AFD
+
         if dfa.simular(input_string):
             print(f"La cadena '{input_string}' pertenece al lenguaje (AFD)")
         else:
