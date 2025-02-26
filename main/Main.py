@@ -52,20 +52,32 @@ def procesar_expresion(expression, index):
         return
 
     try:
-        nfa_simulator = NFA_Simulator(dfa)  # Se usa el AFD como AFN para pruebas
+        
+        # Usamos el AFD para la simulación
+        nfa_simulator = NFA_Simulator(dfa)  
         input_string = input(f"Ingrese una cadena para evaluar en el lenguaje {expression}: ")
         
+        # Simulación con AFD
         if dfa.simular(input_string):
             print(f"La cadena '{input_string}' pertenece al lenguaje (AFD)")
         else:
             print(f"La cadena '{input_string}' NO pertenece al lenguaje (AFD)")
         
-        if nfa_simulator.simulate(input_string):
-            print(f"La cadena '{input_string}' pertenece al lenguaje (AFN)")
-        else:
-            print(f"La cadena '{input_string}' NO pertenece al lenguaje (AFN)")
+
+        try:
+            if nfa_simulator.simulate(input_string):
+                print(f"La cadena '{input_string}' pertenece al lenguaje (AFN)")
+            else:
+                print(f"La cadena '{input_string}' NO pertenece al lenguaje (AFN)")
+        except Exception as e:
+            print(f"Error específico en la simulación del AFN: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            
     except Exception as e:
-        print(f"Error en la simulación del AFN: {str(e)}")
+        print(f"Error en la simulación: {str(e)}")
+        import traceback
+        traceback.print_exc()
 
 def main():
     clear_screen()
